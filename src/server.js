@@ -5,6 +5,7 @@ import cors from 'cors';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 import{winstonLogger} from '../utils/logger.js'
+import{CustomError} from '../utils/errors.js'
 
 const log = winstonLogger('Server','debug');
 class TaskServer {
@@ -48,13 +49,13 @@ class TaskServer {
             next();
         });
 
-        // app.use((err, req, res, next) => {
-        //     log.error('Gateway Service Error', `${err.comingFrom}`, err);
-        //     if (err instanceof CustomError) {
-        //         res.status(err.statusCode).json(err.serializeErrors());
-        //     }
-        //     next();
-        // });
+        app.use((err, req, res, next) => {
+            log.error(' Server Error', `${err.comingFrom}`, err);
+            if (err instanceof CustomError) {
+                res.status(err.statusCode).json(err.serializeErrors());
+            }
+            next();
+        });
     }
 
     #startHttpServer(httpServer) {
