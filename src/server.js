@@ -1,3 +1,5 @@
+
+import 'express-async-errors';
 import { config } from './config.js'
 import { StatusCodes } from 'http-status-codes';
 import http from 'http';
@@ -6,6 +8,7 @@ import compression from 'compression';
 import bodyParser from 'body-parser';
 import{winstonLogger} from '../utils/logger.js'
 import{CustomError} from '../utils/errors.js'
+import { appRoutes } from './routes.js';
 
 const log = winstonLogger('Server','debug');
 class TaskServer {
@@ -38,7 +41,7 @@ class TaskServer {
         app.use(bodyParser.urlencoded({ extended: true, limit: '200mb' }));
     }
     #routesMiddleware(app) {
-
+        appRoutes(app);
     }
     #errorHandler(app) {
         app.use('*', (req, res, next) => {
@@ -46,11 +49,11 @@ class TaskServer {
             res.status(StatusCodes.NOT_FOUND).json({
                 message: 'the endpoint you have called does not exists'
             });
-            next();
+            // next();
         });
 
         app.use((err, req, res, next) => {
-            log.error(' Server Error', `${err.comingFrom}`, err);
+            log.log('error', `UsersService ${err.comingFrom}`, err);
             if (err instanceof CustomError) {
                 res.status(err.statusCode).json(err.serializeErrors());
             }
