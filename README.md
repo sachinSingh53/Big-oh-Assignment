@@ -7,10 +7,7 @@ This is a Node.js backend project that provides APIs to create and fill forms, a
 - [Routes](#routes)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Database Setup](#database-setup)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+- [Technologies](#technologies)
 
 ## Routes
 
@@ -39,5 +36,21 @@ This is a Node.js backend project that provides APIs to create and fill forms, a
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/sachinSingh53/Big-oh-Assignment.git
    cd your-repo-name
+2. Install the dependencies:
+   ```bash
+   npm install
+
+## Usage
+1. Start the project:
+   ```bash
+   npm run dev
+2. The server will start on http://localhost:4000
+
+## Technologies
+- Node.js
+- Express.js
+- MySQL
+- Sequelize
+- Body-parser
