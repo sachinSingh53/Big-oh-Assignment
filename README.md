@@ -37,7 +37,7 @@ This is a Node.js backend project that provides APIs to create and fill forms, a
 1. Clone the repository:
    ```bash
    git clone https://github.com/sachinSingh53/Big-oh-Assignment.git
-   cd your-repo-name
+   cd Big-oh-Assignment
 2. Install the dependencies:
    ```bash
    npm install
