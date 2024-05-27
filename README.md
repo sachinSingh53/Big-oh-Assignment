@@ -19,7 +19,7 @@ This is a Node.js backend project that provides APIs to create and fill forms, a
   - `fields`: An array of field objects containing `name` and `type`.
 
 ### 2. Fill a Form
-- **Endpoint:** `POST /fill_form?form_title=title`
+- **Endpoint:** `POST /fill_data?form_title=title`
 - **Description:** Fills data in the specified form.
 - **Query Parameters:**
   - `form_title`: The title of the form to fill.
@@ -27,7 +27,7 @@ This is a Node.js backend project that provides APIs to create and fill forms, a
   - Dynamic, based on the fields defined in the form.
 
 ### 3. Get Filled Forms
-- **Endpoint:** `GET /fill_form?form_title=title`
+- **Endpoint:** `GET /fill_data?form_title=title`
 - **Description:** Retrieves all filled forms with the specified title.
 - **Query Parameters:**
   - `form_title`: The title of the form to retrieve.
